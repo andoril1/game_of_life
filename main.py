@@ -21,7 +21,8 @@ def main(grid):
         printGrid(grid)
 
 def printGrid(grid):
-    for i in range(len(grid)):
+    """Prints the grid to command line"""
+    for i in range(len(grid))
         
         for ii in range(len(grid[i])):
             
@@ -30,6 +31,10 @@ def printGrid(grid):
         print('')
 
 def getNewGrid(grid):
+    """Return array
+    
+    Builds new array with updated status for each cell
+    """
     newGrid = []
 
     for y in range(len(grid)):
@@ -43,6 +48,10 @@ def getNewGrid(grid):
     return newGrid
 
 def getCellStatus(grid, yPosition, xPosition):
+    """Return any
+    
+    Returns 8 if cell is alive and '.' if cell is dead in next generation
+    """
     if cellIsAlive(grid[yPosition][xPosition]):
         if hasLessThanTwo(grid, yPosition, xPosition) or hasMoreThanThree(grid, yPosition, xPosition):
             return '.'
@@ -58,24 +67,41 @@ def getCellStatus(grid, yPosition, xPosition):
             return '.'
 
 def cellIsAlive(cell):
+    """Return bool"""
     return cell == 8
 
 def hasLessThanTwo(grid, yPosition, xPosition):
+    """Return bool
+
+    Determines if a given cell has less than two neighbours
+    """
     aliveCount = getAliveNeighbours(grid, yPosition, xPosition)
 
     return aliveCount < 2
 
 def hasMoreThanThree(grid, yPosition, xPosition):
+    """Return bool
+
+    Determines if a given cell has more than three neighbours
+    """
     aliveCount = getAliveNeighbours(grid, yPosition, xPosition)
 
     return aliveCount > 3
 
 def hasThree(grid, yPosition, xPosition):
+    """Return bool
+
+    Determines if a given cell has exactly three neighbours
+    """
     aliveCount = getAliveNeighbours(grid, yPosition, xPosition)
 
     return aliveCount == 3
 
 def getAliveNeighbours(grid, yPosition, xPosition):
+    """Return int
+
+    Counts the living neighbours of a given cell
+    """
     counter = 0
     height = len(grid)
     width = len(grid[0])
