@@ -22,10 +22,9 @@ def main(grid):
 
 def printGrid(grid):
     """Prints the grid to command line"""
-    for i in range(len(grid))
+    for i in range(len(grid)):
         
         for ii in range(len(grid[i])):
-            
             print(grid[i][ii], end=' ', flush=True)
 
         print('')
